@@ -70,10 +70,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		    
 		      	if ($conn->query($sql) === TRUE) {
 		          	# echo "New record created successfully";
-		          	header('Location: /EastFallsCarDealership/privateListingsPage.php?message=' . urlencode('Success! Car saved.'));
-		      	} else {
+ 		      	} else {
 		          	echo "Error: " . $sql . "<br>" . $conn->error;
 		      	}
+
+  				header('Location: /EastFallsCarDealership/privateListingsPage.php?message=' . urlencode('Success! Car saved.'));    
 
 	    	} 
 
@@ -113,7 +114,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 						<H3>New Inventory Intake Form</H3>
 						<br>
 						<!-- <h1>does it work</h1> -->
-						<form action="update.php" method="POST" enctype="multipart/form-data">
+						<form <?php if (isset($car_id)) echo "action='update.php'" ?> method="POST" enctype="multipart/form-data">
 
 						<?php if (isset($car_id)) echo "<input type='hidden' name='car_id' value =" . $car_id ." > " ; ?>
 
@@ -219,13 +220,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 						    <div class="img">
 						        <label for="exampleInputPrice1">Image Upload:</label>
 						         <span class=" glyphicon glyphicon-upload" aria-hidden="true"></span>
-   							 <span class="sr-only">Error:</span>
-   							 <br>
-   							 <span>Current: </span><?php echo $listing['image']?>
-   							 <br>
-   							 <span>Replace With: </span>
+	   							 <span class="sr-only">Error:</span>
+	   							 <br>
+	   							 <?php if(isset($listing['image'])) { ?>
+	   							 	<span>Current: </span><?php echo $listing['image']?>
+	   							 	<br>
+	   							 	<span>Replace With: </span>
+	   							 <?php } ?>
     							<input type="file" name="image" id="image" style="display:inline;"/>
-
 							</div>
 							<br>
 

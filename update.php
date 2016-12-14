@@ -7,6 +7,7 @@
 	$description = mysqli_real_escape_string($conn, $_POST['description']);
 	$price= mysqli_real_escape_string($conn, $_POST['price']);
 	$image= $_FILES['image'];
+	$auto_maker = $_POST['maker_id'];
 
   // put all this shit the the DB!
     if (isset($_POST['car_id'])) {
@@ -19,7 +20,7 @@
    	} else {
 
   		$sql = "INSERT INTO car_names (auto_maker_id, car_name, purchase_date, year, description, price, image )
-		      	VALUES ('$auto_maker', '$car_name', '$purchase_date', '$year', '$description', '$price', '$file_name')";
+		      	VALUES ('$auto_maker', '$car_name', '$purchase_date', '$year', '$description', '$price', '$image')";
 
       	$conn->query($sql);
 	}
