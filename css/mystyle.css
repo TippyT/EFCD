@@ -1,0 +1,36 @@
+.background-container{
+	background-image: url('../img/car_background.jpg');
+	height: 100vh;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.background-form-container{
+	background-color: #D3D3D3;
+
+}
+.form-container{
+	background-color: #fff;
+	width: 100%;
+	padding: 30px;
+	margin: 40px 0px;
+}
+.display-container{
+	background-color: #fff;
+	width: 100%;
+	padding: 30px;
+	margin: 40px 0px;
+}
+
+.form-spacing{
+	margin-bottom: 10px;
+}
+
+
+
+
+.sort-container{
+	background-color: #D3D3D3
+	width: 100%;
+	padding: 30px;
+	margin: 40px 0px;
+}
